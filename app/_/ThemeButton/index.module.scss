@@ -1,0 +1,45 @@
+@use '@/_/colors';
+@use '@/_/media-queries' as *;
+
+.button {
+  border: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  [data-theme='light'] & {
+    background-color: colors.$blueGrey-100;
+  }
+
+  [data-theme='dark'] & {
+    background-color: colors.$blueGrey-800;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  @include xs {
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 0.3rem;
+  }
+
+  @include sm {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+  }
+
+  @include md {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 0.5rem;
+  }
+
+  @include gt-md {
+    height: 4rem;
+    width: 4rem;
+    border-radius: 0.5rem;
+  }
+}
