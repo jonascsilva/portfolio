@@ -4,7 +4,6 @@ import { getNextTheme } from '@/_/themes.utils'
 import { useTheme } from '@/_/useTheme'
 import { fireEvent, render, screen } from '@testing-library/react'
 
-// Mock the dependencies
 jest.mock('@/_/useTheme', () => ({
   useTheme: jest.fn()
 }))

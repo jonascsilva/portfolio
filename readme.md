@@ -211,13 +211,21 @@ Também será implementada autenticação nas rotas de API para controlar o aces
 # 4. Próximos Passos
 
 Depois que o documento for concluído e aprovado, os próximos passos serão os seguintes:
+
 1. Desenvolver o protótipo (Figma).
+
 2. Criar as tarefas no Board do Kanban.
+
 3. Criar as páginas do projeto (frontend).
+
 4. Criar as rotas do projeto (backend).
+
 5. Criar as tabelas no banco.
+
 6. Criar actions do GitHub.
+
 7. Configurar a aplicação para rodar com docker
+
 8. Realizar o primeiro deploy da aplicação na Digital Ocean.
 
 # 5. Referências
@@ -239,7 +247,7 @@ Depois que o documento for concluído e aprovado, os próximos passos serão os 
 - Documentação do Sass
   - https://sass-lang.com/documentation
 - Documentação do Prettier
-  - https://prettier.io/docs/en](https://prettier.io/docs/en)
+  - https://prettier.io/docs/en
 - Documentação do ESLint
   - https://eslint.org/docs/latest
 - Documentação do Jest
