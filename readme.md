@@ -239,9 +239,9 @@ Depois que o documento for concluído e aprovado, os próximos passos serão os 
 - Documentação do React
   - https://react.dev
 - Documentação do PostgreSQL
-  - https://www.postgresql.org/docs
+  - https://postgresql.org/docs
 - Documentação do TypeScript
-  - https://www.typescriptlang.org/docs
+  - https://typescriptlang.org/docs
 - Documentação do Node
   - https://nodejs.org/docs/latest/api
 - Documentação do Sass
@@ -280,7 +280,7 @@ Depois que o documento for concluído e aprovado, os próximos passos serão os 
 
 ### RemNote
 
-- https://www.remnote.com
+- https://remnote.com
 - Flashcards e anotações.
 
 ### Quizlet
