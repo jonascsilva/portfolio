@@ -6,7 +6,7 @@
     "build": "next build",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && stylelint **/*.*css",
     "fmt": "prettier --write .",
     "test": "jest",
     "test:watch": "jest --watch"
@@ -38,6 +38,8 @@
     "prettier": "^3.1.1",
     "prisma": "^5.16.2",
     "sass": "^1.69.6",
+    "stylelint": "^16.7.0",
+    "stylelint-config-standard-scss": "^13.1.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   },
