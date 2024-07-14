@@ -31,15 +31,9 @@
     border-radius: 0.5rem;
   }
 
-  @include md {
-    height: 3.5rem;
-    width: 3.5rem;
-    border-radius: 0.5rem;
-  }
-
-  @include gt-md {
-    height: 4rem;
-    width: 4rem;
+  @include gt-sm {
+    height: 3rem;
+    width: 3rem;
     border-radius: 0.5rem;
   }
 }

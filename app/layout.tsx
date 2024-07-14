@@ -10,7 +10,7 @@ import classes from './layout.module.scss'
 const inter = Inter({ subsets: ['latin'] })
 
 const metadata: Metadata = {
-  title: 'Study'
+  title: 'StudyNest'
 }
 
 const Layout = ({ children }: PropsWithChildren) => (

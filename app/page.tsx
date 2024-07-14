@@ -1,24 +1,32 @@
-import prisma from '/lib/prisma'
-
 import { ThemeButton } from '@/_/ThemeButton'
 
 import classes from './page.module.scss'
 
 const Page = async () => {
-  const rows = await prisma.testTable.findMany()
-
   return (
-    <main className={classes.main}>
-      <ThemeButton />
-      <h1 className={classes.heading}>Study</h1>
-      <h2>Themes:</h2>
-      <h2>Biology</h2>
-      <h2>Physics</h2>
-      <h2>Math</h2>
-      {rows.map(row => (
-        <div key={row.id}>{row.id}</div>
-      ))}
-    </main>
+    <div>
+      <nav className={classes.navbar}>
+        <div className={classes.leftContainer}>
+          <h1 className={classes.heading}>
+            Study<span>Nest</span>
+          </h1>
+        </div>
+        <div className={classes.rightContainer}>
+          <button className={classes.button}>Login</button>
+          <button className={classes.button}>Criar conta</button>
+          <ThemeButton />
+        </div>
+      </nav>
+      <main className={classes.main}>
+        <section className={classes.section}>
+          <div className={classes.imageContainer}>Flashcards images placeholder</div>
+          <div>
+            <h2>Estude Menos, Aprenda Mais!</h2>
+            <h3>Sua ferramenta completa para um aprendizado eficiente.</h3>
+          </div>
+        </section>
+      </main>
+    </div>
   )
 }
 
