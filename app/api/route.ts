@@ -1,10 +1,4 @@
-import prisma from '/lib/prisma'
-
-/* export async function GET() {
-  const testTables = await prisma.testTable.findMany()
-
-  return Response.json({ testTables })
-} */
+import { prisma } from '/lib/prisma'
 
 export async function GET() {
   const newTestTable = await prisma.testTable.create({

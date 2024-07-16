@@ -1,3 +1,4 @@
+import { Button } from '@/_/Button'
 import { ThemeButton } from '@/_/ThemeButton'
 
 import classes from './page.module.scss'
@@ -12,7 +13,7 @@ const Page = async () => {
           </h1>
         </div>
         <div className={classes.rightContainer}>
-          <button className={classes.button}>Login</button>
+          <Button />
           <button className={classes.button}>Criar conta</button>
           <ThemeButton />
         </div>
