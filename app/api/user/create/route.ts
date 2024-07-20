@@ -6,7 +6,7 @@ const GET = async () => {
     const passwordHash = hashPassword('cleber')
 
     const user = await prismaAdapter.createUser?.({
-      id: "",
+      id: '',
       password: passwordHash,
       email: 'admin@portfolio.com',
       emailVerified: new Date()
