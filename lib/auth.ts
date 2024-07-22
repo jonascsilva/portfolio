@@ -9,27 +9,27 @@ import { PrismaAdapter } from '@auth/prisma-adapter'
 
 const prismaAdapter = PrismaAdapter(prisma)
 
-declare module 'next-auth' {
-  interface User {
-    password: string
-  }
-}
-
-declare module '@auth/core/adapters' {
-  interface AdapterUser {
-    password: string
-  }
-}
-
 const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: prismaAdapter,
+  logger: {
+    error: error => {
+      console.error(error)
+    },
+    warn: code => {
+      console.warn(code)
+    },
+    debug: (message, metadata) => {
+      console.debug(message, metadata)
+    }
+  },
+  session: { strategy: 'jwt' },
   providers: [
     Credentials({
       credentials: {
         email: {},
         password: {}
       },
-      authorize: async credentials => {
+      async authorize(credentials) {
         try {
           const { email, password } = await signInSchema.parseAsync(credentials)
 
@@ -37,9 +37,9 @@ const { handlers, signIn, signOut, auth } = NextAuth({
 
           const user = await getUser(email, pwHash)
 
-          /* if (!user) {
+          if (!user) {
             throw new Error('User not found.')
-          } */
+          }
 
           return user
         } catch (error) {

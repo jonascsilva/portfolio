@@ -1,9 +1,13 @@
-import { Button } from '@/_/Button'
+import { auth, signIn } from '/lib/auth'
+import Link from 'next/link'
+
 import { ThemeButton } from '@/_/ThemeButton'
 
 import classes from './page.module.scss'
 
 const Page = async () => {
+  const session = await auth()
+
   return (
     <div>
       <nav className={classes.navbar}>
@@ -13,8 +17,24 @@ const Page = async () => {
           </h1>
         </div>
         <div className={classes.rightContainer}>
-          <Button />
-          <button className={classes.button}>Criar conta</button>
+          {session ? (
+            <Link href={'/dashboard'}>
+              <button className={classes.button}>Dashboard</button>
+            </Link>
+          ) : (
+            <>
+              <form
+                action={async () => {
+                  'use server'
+
+                  await signIn()
+                }}
+              >
+                <button className={classes.button}>Sign in</button>
+              </form>
+              <button className={classes.button}>Criar conta</button>
+            </>
+          )}
           <ThemeButton />
         </div>
       </nav>
