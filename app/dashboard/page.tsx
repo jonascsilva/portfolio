@@ -1,9 +1,12 @@
 import { auth, signOut } from '/lib/auth'
+import { redirect } from 'next/navigation'
 
 const Page = async () => {
   const session = await auth()
 
-  console.log(session)
+  if (!session) {
+    redirect('/api/auth/signin')
+  }
 
   return (
     <div>
@@ -11,6 +14,7 @@ const Page = async () => {
       <form
         action={async () => {
           'use server'
+
           await signOut()
         }}
       >
