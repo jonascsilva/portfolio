@@ -10,8 +10,7 @@
     "lint": "next lint && stylelint **/*.*css",
     "fmt": "prettier --write .",
     "seed": "prisma db seed",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "vitest",
     "postinstall": "prisma generate"
   },
   "prisma": {
@@ -34,26 +33,25 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
-    "@types/jest": "^29.5.12",
     "@types/node": "^20.11.16",
     "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "eslint-config-prettier": "^9.1.0",
-    "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.1.1",
     "prettier": "^3.1.1",
     "prisma": "^5.16.2",
     "sass": "^1.69.6",
     "stylelint": "^16.7.0",
     "stylelint-config-standard-scss": "^13.1.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^2.0.4"
   },
   "packageManager": "pnpm@8.13.1+sha256.9e5f62ce5f2b7d4ceb3c2848f41cf0b33032c24d683c7088b53f62b1885fb246"
 }
