@@ -27,7 +27,7 @@ const Page = async () => {
                 action={async () => {
                   'use server'
 
-                  await signIn()
+                  await signIn(undefined, { redirectTo: '/dashboard' })
                 }}
               >
                 <button className={classes.button}>Sign in</button>
