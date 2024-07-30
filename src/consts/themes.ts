@@ -1,4 +1,4 @@
-import type { Themes } from './themes.types'
+import type { Themes } from '$/types/themes'
 
 const themes: Themes = ['light', 'dark']
 

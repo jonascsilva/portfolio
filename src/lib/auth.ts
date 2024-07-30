@@ -1,11 +1,11 @@
-import { prisma } from '/lib/prisma'
-import { signInSchema } from '/lib/zod'
-import { getUser } from '/utils/db'
-import { hashPassword } from '/utils/password'
+import { PrismaAdapter } from '@auth/prisma-adapter'
 import NextAuth from 'next-auth'
 import Credentials from 'next-auth/providers/credentials'
 
-import { PrismaAdapter } from '@auth/prisma-adapter'
+import { prisma } from '$/lib/prisma'
+import { signInSchema } from '$/lib/zod'
+import { getUser } from '$/utils/db'
+import { hashPassword } from '$/utils/password'
 
 const prismaAdapter = PrismaAdapter(prisma)
 

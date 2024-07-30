@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 
-import { Providers } from './_/Providers'
+import { Providers } from './providers'
 
 import classes from './layout.module.scss'
 

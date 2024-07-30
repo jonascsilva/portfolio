@@ -1,7 +1,7 @@
-import { auth, signIn } from '/lib/auth'
 import Link from 'next/link'
 
-import { ThemeButton } from '@/_/ThemeButton'
+import { ThemeButton } from '$/cmps/ThemeButton'
+import { auth, signIn } from '$/lib/auth'
 
 import classes from './page.module.scss'
 

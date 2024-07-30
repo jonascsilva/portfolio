@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes'
 
-import type { Theme } from '@/_/themes.types'
+import type { Theme } from '$/types/themes'
 
 type SetTheme = (theme: Theme) => void
 

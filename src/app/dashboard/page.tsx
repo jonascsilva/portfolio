@@ -1,5 +1,6 @@
-import { auth, signOut } from '/lib/auth'
 import { redirect } from 'next/navigation'
+
+import { auth, signOut } from '$/lib/auth'
 
 const Page = async () => {
   const session = await auth()

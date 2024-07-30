@@ -1,5 +1,5 @@
-import { themes } from './themes.consts'
-import type { Theme } from './themes.types'
+import { themes } from '$/consts/themes'
+import type { Theme } from '$/types/themes'
 
 const getNextTheme = (theme: Theme) => {
   const currentThemeIndex = themes.indexOf(theme)

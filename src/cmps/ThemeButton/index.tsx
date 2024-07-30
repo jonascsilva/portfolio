@@ -2,10 +2,9 @@
 
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
 
-import { getNextTheme } from '@/_/themes.utils'
-import { useTheme } from '@/_/useTheme'
-
-import { useIsMounted } from './useIsMounted'
+import { useIsMounted } from '$/hooks/useIsMounted'
+import { useTheme } from '$/hooks/useTheme'
+import { getNextTheme } from '$/utils/themes'
 
 import classes from './index.module.scss'
 

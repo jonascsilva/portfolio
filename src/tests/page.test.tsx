@@ -1,18 +1,19 @@
-import { ThemeButton } from '@/_/ThemeButton'
-import { useIsMounted } from '@/_/ThemeButton/useIsMounted'
-import { getNextTheme } from '@/_/themes.utils'
-import { useTheme } from '@/_/useTheme'
 import { fireEvent, render, screen } from '@testing-library/react'
 
-jest.mock('@/_/useTheme', () => ({
+import { ThemeButton } from '$/cmps/ThemeButton'
+import { useIsMounted } from '$/hooks/useIsMounted'
+import { useTheme } from '$/hooks/useTheme'
+import { getNextTheme } from '$/utils/themes'
+
+jest.mock('$/hooks/useTheme', () => ({
   useTheme: jest.fn()
 }))
 
-jest.mock('@/_/ThemeButton/useIsMounted', () => ({
+jest.mock('$/hooks/useIsMounted', () => ({
   useIsMounted: jest.fn()
 }))
 
-jest.mock('@/_/themes.utils', () => ({
+jest.mock('$/utils/themes', () => ({
   getNextTheme: jest.fn()
 }))
 
