@@ -1,8 +1,4 @@
 {
-  "importOrder": ["<THIRD_PARTY_MODULES>", "^$", "^./.*(?<!css)$", "^./"],
-  "plugins": ["@trivago/prettier-plugin-sort-imports"],
-  "importOrderSortSpecifiers": true,
-  "importOrderSeparation": true,
   "trailingComma": "none",
   "jsxSingleQuote": true,
   "arrowParens": "avoid",
