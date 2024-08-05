@@ -3,9 +3,8 @@ import { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { PropsWithChildren } from 'react'
 
-import { Providers } from './providers'
-
 import classes from './layout.module.scss'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 

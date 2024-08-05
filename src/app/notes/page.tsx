@@ -3,8 +3,6 @@ import { redirect } from 'next/navigation'
 import { DashboardShell } from '$/cmps/DashboardShell'
 import { auth } from '$/lib/auth'
 
-import classes from './page.module.scss'
-
 const Page = async () => {
   const session = await auth()
 
@@ -14,10 +12,7 @@ const Page = async () => {
 
   return (
     <DashboardShell>
-      <h2 className={classes.heading}>
-        Bem vindo <span>{session.user?.name}</span>!
-      </h2>
-      <h3>Recentes</h3>
+      <h2>Anotações</h2>
     </DashboardShell>
   )
 }
