@@ -1,6 +1,3 @@
-import { redirect } from 'next/navigation'
-
-import { DashboardShell } from '$/cmps/DashboardShell'
 import { auth } from '$/lib/auth'
 
 import classes from './page.module.scss'
@@ -8,17 +5,13 @@ import classes from './page.module.scss'
 const Page = async () => {
   const session = await auth()
 
-  if (!session) {
-    redirect('/api/auth/signin')
-  }
-
   return (
-    <DashboardShell>
+    <>
       <h2 className={classes.heading}>
-        Bem vindo <span>{session.user?.name}</span>!
+        Bem vindo <span>{session!.user?.name}</span>!
       </h2>
       <h3>Recentes</h3>
-    </DashboardShell>
+    </>
   )
 }
 
