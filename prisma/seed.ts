@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 
-import { hashPassword } from '$/utils/password'
+import { hashPassword } from '../src/utils/password'
 
 const prisma = new PrismaClient()
 
@@ -15,7 +15,20 @@ async function main() {
     }
   })
 
-  console.log({ adminUser })
+  const noteId = 'DELETEME'
+
+  const note = await prisma.note.upsert({
+    where: { id: noteId },
+    update: {},
+    create: {
+      id: noteId,
+      title: 'Título',
+      content: 'Texto muito longo',
+      userId: adminUser.id
+    }
+  })
+
+  console.log({ adminUser, note })
 }
 
 main()
