@@ -7,8 +7,6 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    outputs:
-      cache-hit: ${{ steps.cache-deps.outputs.cache-hit }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -18,18 +16,17 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Cache Node.js modules
-        id: cache-deps
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-cache-
-            ${{ runner.os }}-
-
       - name: Install dependencies
         run: npm ci
+
+      - name: Archive node_modules
+        run: tar -czf node_modules.tar.gz node_modules
+
+      - name: Upload node_modules as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: node_modules
+          path: node_modules.tar.gz
 
   test:
     runs-on: ubuntu-latest
@@ -37,6 +34,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Download node_modules artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: node_modules
+
+      - name: Extract node_modules
+        run: tar -xzf node_modules.tar.gz
 
       - name: Run tests
         run: npm test
@@ -48,6 +53,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Download node_modules artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: node_modules
+
+      - name: Extract node_modules
+        run: tar -xzf node_modules.tar.gz
+
       - name: Run lint
         run: npm run lint
 
@@ -57,6 +70,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Download node_modules artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: node_modules
+
+      - name: Extract node_modules
+        run: tar -xzf node_modules.tar.gz
 
       - name: Build project
         run: npm run build
