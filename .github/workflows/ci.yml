@@ -12,17 +12,17 @@ jobs:
       node-version: ${{ steps.node-version.outputs.node-version }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         id: node-version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Cache Node.js modules
         id: cache-deps
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
@@ -38,16 +38,16 @@ jobs:
     needs: setup
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Cache Node.js modules
         id: cache-deps-test
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
@@ -66,16 +66,16 @@ jobs:
     needs: setup
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Cache Node.js modules
         id: cache-deps-lint
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
@@ -94,16 +94,16 @@ jobs:
     needs: setup
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Cache Node.js modules
         id: cache-deps-build
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
