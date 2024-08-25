@@ -1,16 +1,51 @@
-name: Run tests
+name: Main pipeline
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-  test:
+  setup:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Create pnpm store directory if not exists
+        run: mkdir -p ~/.pnpm-store
+
+      - name: Cache dependencies
+        id: cache-deps
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-build-cache-deps-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-build-cache-deps-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: List the state of node modules
+        if: ${{ steps.cache-deps.outputs.cache-hit != 'true' }}
+        run: pnpm list
+
+      - name: Install dependencies
+        run: pnpm install
+
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
@@ -25,3 +60,24 @@ jobs:
 
       - name: Run tests
         run: pnpm test
+
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run lint
+        run: pnpm lint

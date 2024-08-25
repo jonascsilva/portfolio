@@ -6,7 +6,7 @@
     "build": "next build",
     "vercel-build": "prisma generate --no-hints && prisma migrate deploy && next build",
     "start": "next start",
-    "lint": "next lint && stylelint src/**/*.*css",
+    "lint": "next lint && stylelint src/**/*.*css && prettier -c .",
     "fmt": "prettier --write .",
     "seed": "prisma db seed",
     "test": "jest",
