@@ -9,13 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       cache-hit: ${{ steps.cache-deps.outputs.cache-hit }}
-      node-version: ${{ steps.node-version.outputs.node-version }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Set up Node.js
-        id: node-version
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -40,24 +38,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Cache Node.js modules
-        id: cache-deps-test
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-cache-
-            ${{ runner.os }}-
-
-      - name: Install dependencies
-        run: npm ci
-
       - name: Run tests
         run: npm test
 
@@ -68,24 +48,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Cache Node.js modules
-        id: cache-deps-lint
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-cache-
-            ${{ runner.os }}-
-
-      - name: Install dependencies
-        run: npm ci
-
       - name: Run lint
         run: npm run lint
 
@@ -95,24 +57,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Cache Node.js modules
-        id: cache-deps-build
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-npm-cache-
-            ${{ runner.os }}-
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Build project
         run: npm run build
