@@ -1,6 +1,7 @@
 import { PrismaClient } from '@prisma/client'
 
 import { hashPassword } from '../src/utils/password'
+import { generateId } from '../src/utils/seed'
 
 const prisma = new PrismaClient()
 
@@ -15,20 +16,29 @@ async function main() {
     }
   })
 
-  const noteId = 'DELETEME'
+  const notes = [
+    { title: 'Revolução Francesa', subject: 'História' },
+    { title: 'Guerra Fria', subject: 'História' },
+    { title: 'Vitaminas', subject: 'Biologia' }
+  ]
 
-  const note = await prisma.note.upsert({
-    where: { id: noteId },
-    update: {},
-    create: {
-      id: noteId,
-      title: 'Título',
-      content: 'Texto muito longo',
-      userId: adminUser.id
-    }
-  })
+  for (const note of notes) {
+    const noteId = generateId()
 
-  console.log({ adminUser, note })
+    await prisma.note.upsert({
+      where: { id: noteId },
+      update: {},
+      create: {
+        id: noteId,
+        title: note.title,
+        subject: note.subject,
+        content: '',
+        userId: adminUser.id
+      }
+    })
+  }
+
+  console.log({ adminUser, notes })
 }
 
 main()

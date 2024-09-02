@@ -67,6 +67,7 @@ model VerificationToken {
 model Note {
   id      String @id @default(cuid())
   title   String
+  subject String
   content String
   userId  String
 
