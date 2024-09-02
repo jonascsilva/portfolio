@@ -1,17 +1,12 @@
-import { ReactNode } from 'react'
-
-type Row = {
+type RowData = {
   id: string
-  [key: string]: string | Date | Node
+  [key: string]: string | Date | JSX.Element
 }
 
-type ActionsKeys = 'edit' | 'share'
-
-type Actions = {
-  [key in ActionsKeys]: {
-    icon: ReactNode
-    onClick: () => void
-  }
+type RowAction = {
+  name: string
+  icon: JSX.Element
+  handleClick: (rowData: RowData) => void
 }
 
-export type { Row, ActionsKeys, Actions }
+export type { RowData, RowAction }

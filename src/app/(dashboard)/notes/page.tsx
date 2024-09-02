@@ -1,5 +1,6 @@
-import { Table } from '$/cmps/Table'
 import { prisma } from '$/lib/prisma'
+
+import { Client } from './client'
 
 const Page = async () => {
   const notes = await prisma.note.findMany({
@@ -8,7 +9,7 @@ const Page = async () => {
     }
   })
 
-  const rows = notes.map(note => {
+  const rowsData = notes.map(note => {
     const { id, title, updatedAt } = note
 
     return { id, title, updatedAt }
@@ -17,11 +18,7 @@ const Page = async () => {
   return (
     <>
       <h2>Anotações</h2>
-      <Table
-        headers={['Nome', 'Assunto', 'Última modificação', '', '']}
-        rows={rows}
-        actions={['edit', 'share']}
-      ></Table>
+      <Client rowsData={rowsData} />
     </>
   )
 }

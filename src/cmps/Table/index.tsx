@@ -1,27 +1,29 @@
 import { Row } from '$/cmps/Row'
-import { ActionsKeys, Row as TableRow } from '$/types/table'
+import { RowAction, RowData } from '$/types/table'
 
 import classes from './index.module.scss'
 
 type Props = {
-  headers: string[]
-  rows: TableRow[]
-  actions: ActionsKeys[]
+  headers?: string[]
+  rowsData: RowData[]
+  rowActions: RowAction[]
 }
 
-const Table = ({ headers, rows, actions }: Props) => {
+const Table = ({ headers, rowsData, rowActions }: Props) => {
   return (
     <div className={classes.table}>
-      <div className={classes.header}>
-        {headers.map(header => (
-          <span key={header} className={classes.header}>
-            {header}
-          </span>
-        ))}
-      </div>
+      {headers && (
+        <div className={classes.header}>
+          {headers.map((header, i) => (
+            <span key={i} className={classes.header}>
+              {header}
+            </span>
+          ))}
+        </div>
+      )}
       <div className={classes.rows}>
-        {rows.map(row => (
-          <Row key={row.id} row={row} actions={actions} />
+        {rowsData.map(rowData => (
+          <Row key={rowData.id} rowData={rowData} rowActions={rowActions} />
         ))}
       </div>
     </div>

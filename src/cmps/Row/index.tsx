@@ -1,20 +1,17 @@
-'use client'
-
-import { actions as tableActions } from '$/consts/table'
-import { ActionsKeys, Row as RowType } from '$/types/table'
+import { RowAction, RowData } from '$/types/table'
 
 import classes from './index.module.scss'
 
 type Props = {
-  row: RowType
-  actions: ActionsKeys[]
+  rowData: RowData
+  rowActions: RowAction[]
 }
 
-const Row = ({ row, actions }: Props) => {
+const Row = ({ rowData, rowActions }: Props) => {
   return (
-    <span key={row.id} className={classes.row}>
-      {Object.values(row).map((value, j) => (
-        <span key={j} className={classes.cell}>
+    <span key={rowData.id} className={classes.row}>
+      {Object.values(rowData).map(value => (
+        <span key={rowData.id} className={classes.cell}>
           {value?.toLocaleString('pt-BR', {
             day: '2-digit',
             month: '2-digit',
@@ -22,11 +19,9 @@ const Row = ({ row, actions }: Props) => {
           })}
         </span>
       ))}
-      {actions.map(action => {
-        const { onClick, icon } = tableActions[action]
-
+      {rowActions.map(({ name, handleClick, icon }) => {
         return (
-          <button key={action} onClick={onClick}>
+          <button key={name} onClick={() => handleClick(rowData)}>
             {icon}
           </button>
         )
