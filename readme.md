@@ -1,3 +1,19 @@
+# Links
+
+## Repositório front-end
+
+- https://github.com/jonascsilva/studynest-frontend
+
+## Repositorio back-end:
+
+- https://github.com/jonascsilva/studynest-backend
+
+## Board Kanban
+
+- https://github.com/users/jonascsilva/projects/1
+
+---
+
 # Resumo
 
 Este projeto trata de uma aplicação web focada em estudantes, que os auxilia a absorverem o conteúdo que estão estudando. Essa aplicação será desenvolvida com práticas de engenharia de software e permitirá que os alunos façam anotações em documentos, revisem o conteúdo com flashcards, utilizando a técnica de aprendizagem espaçada, e respondam quizzes para avaliarem o seu desempenho. Com esses três aspectos, a aplicação tende a auxiliar os seus usuários a absorverem melhor o conteúdo que estão estudando e em um tempo menor. Os documentos suportarão markdown e permitirão aos usuários preservarem qualquer informação relevante sobre o conteúdo. Os flashcards são fichas de estudo com uma pergunta de um lado e a resposta do outro, e a técnica de repetição espaçada utilizada por eles é uma abordagem fundamentada no “Efeito do espaçamento”. Esse efeito psicológico demonstra que as pessoas absorvem melhor o conteúdo quando estudam de forma espaçada, em vez de estudar o mesmo conteúdo por um longo período de uma só vez. Os quizzes são um conjunto de questões que, ao final deles, apresentarão uma nota de acordo com os acertos do usuário. Com essas três ferramentas, e permitindo qualquer usuário compartilhar os conteúdos criados com os outros, a aplicação tem o objetivo de que eles tenham um desempenho melhor na escola ou em qualquer área de interesse.
