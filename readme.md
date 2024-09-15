@@ -128,7 +128,7 @@ Auxiliar alunos nos estudos de qualquer assunto, permitindo que eles anotem o qu
 
 ### Representação dos Requisitos
 
-![use case - 1](docs/use%20case%20-%201.png)
+![use case - 1](assets/use%20case%20-%201.png)
 
 O diagrama de casos de uso mostra as interações entre o estudante e aplicação. O estudante pode criar uma conta, fazer login, e dentro do sistema, criar quizzes, anotações e flashcards. Cada uma dessas funcionalidades inclui ações como visualizar, editar, excluir e compartilhar o conteúdo, além de responder quizzes e praticar flashcards. O diagrama destaca o foco da aplicação na gestão dos recursos de estudo, apoiando o aprendizado do usuário.
 
@@ -151,13 +151,13 @@ A comunicação entre cliente e servidor será realizada através da API REST, p
 
 #### Nível 1 - Contexto
 
-![c4 - 1](docs/c4%20-%201.png)
+![c4 - 1](assets/c4%20-%201.png)
 
 O diagrama exibe o nível 1 do modelo C4, fornecendo uma visão geral da aplicação e sua interação com os usuários, sem detalhar a estrutura interna. O estudante utiliza o StudyNest, para gerenciar notas, flashcards e quizzes. A comunicação entre ambos ocorre via HTTPS.
 
 #### Nível 2 - Container
 
-![c4 - 2](docs/c4%20-%202.png)
+![c4 - 2](assets/c4%20-%202.png)
 
 O diagrama exibe o nível 2 do modelo C4, fornecendo uma visão detalhada dos principais contêineres dentro da aplicação, sem detalhar a estrutura interna de cada um. A aplicação web é implementada em React.js e serve como painel de controle para o usuário.
 
@@ -165,7 +165,7 @@ A aplicação web se comunica com o o backend ("API Service") implementado em No
 
 #### Nível 3 - Componente - Frontend
 
-![c4 - 3 - 1](docs/c4%20-%203%20-%201.png)
+![c4 - 3 - 1](assets/c4%20-%203%20-%201.png)
 
 O diagrama exibe o nível 3 do modelo C4, fornecendo uma visão detalhada dos componentes de frontend da aplicação, sem detalhar a implementação interna de cada componente. O estudante interage com duas páginas principais: a página de autenticação e a página de painel de controle.
 
@@ -175,7 +175,7 @@ O diagrama exibe o nível 3 do modelo C4, fornecendo uma visão detalhada dos co
 
 #### Nível 3 - Componente - Backend
 
-![c4 - 3 - 2](docs/c4%20-%203%20-%202.png)
+![c4 - 3 - 2](assets/c4%20-%203%20-%202.png)
 
 O diagrama exibe o nível 3 do modelo C4, fornecendo uma visão detalhada dos componentes de backend da aplicação, sem detalhar a implementação interna de cada componente. O estudante interage com a aplicação web, que, por sua vez, comunica-se com os componentes de backend para gerenciar autenticação e dados do usuário.
 
